@@ -20,9 +20,9 @@ textareaEl.addEventListener("keyup", renderWordsHTML);
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const words = renderWordsHTML();
-  if (choosing || !words.length) return;
+  if (choosing || !wordsContainer.children.length) return;
 
+  const words = renderWordsHTML();
   choosing = true;
   textareaEl.setAttribute("disabled", "");
 
