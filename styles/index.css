@@ -100,10 +100,10 @@ body {
   background-color: var(--yellow);
   color: var(--black);
   border-color: transparent;
-  animation: chosen .1s infinite;
+  animation: highlight .3s infinite alternate;
 }
 
-@keyframes chosen {
+@keyframes highlight {
   from {
     background-color: var(--yellow);
     color: var(--black);
@@ -111,6 +111,8 @@ body {
   to {
     color: var(--white);
     background-color: transparent;
+    border: 2px solid var(--white);
+    
   }
 }
 
