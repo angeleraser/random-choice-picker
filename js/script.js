@@ -1,4 +1,4 @@
-import { cronometer, getRandomIndex, getSeparatedWords } from "./utils.js";
+import { timer, getRandomIndex, getSeparatedWords } from "./utils.js";
 
 const formEl = document.getElementById("form");
 const textareaEl = document.getElementById("textarea");
@@ -20,25 +20,24 @@ textareaEl.addEventListener("keyup", renderWordsHTML);
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const nodes = renderWordsHTML();
-
-  if (choosing || !nodes.length) return;
+  const words = renderWordsHTML();
+  if (choosing || !words.length) return;
 
   choosing = true;
   textareaEl.setAttribute("disabled", "");
 
-  cronometer({
+  timer({
     durationMs: 3000,
     intervalMs: 75,
     callback: function () {
-      nodes[indx].classList.remove("highlight", "chosen");
-      nodes[indx + 1 === nodes.length ? (indx = 0) : ++indx].classList.add(
+      words[indx].classList.remove("highlight");
+      words[indx + 1 === words.length ? (indx = 0) : ++indx].classList.add(
         "highlight"
       );
     },
     onComplete: function () {
-      nodes[indx].classList.remove("highlight");
-      nodes[(indx = getRandomIndex(nodes.length))].classList.add("highlight");
+      words[indx].classList.remove("highlight");
+      words[getRandomIndex(words.length)].classList.add("highlight");
       choosing = false;
       indx = 0;
       textareaEl.removeAttribute("disabled");

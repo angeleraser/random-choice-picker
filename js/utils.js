@@ -1,4 +1,4 @@
-export function cronometer({
+export function timer({
   durationMs,
   callback,
   onComplete,
