@@ -1,0 +1,120 @@
+@import url("./sanitize.css");
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+:root {
+  --white: #fafafa;
+  --skyblue: #c7eeff;
+  --blue: #0077c0;
+  --black: #1d242b;
+  --yellow: #ffd124;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Muli", sans-serif;
+  min-width: 360px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--blue);
+  padding-top: 25vh;
+}
+
+.form,
+.words-container {
+  display: flex;
+  width: 100%;
+  max-width: 720px;
+  gap: 16px;
+}
+
+.title {
+  color: var(--white);
+  font-size: 20px;
+  text-align: center;
+}
+
+.form {
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 24px;
+}
+
+.form-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 200px;
+  max-height: 400px;
+  border: none;
+  color: var(--black);
+  padding: 14px;
+  font-size: 18px;
+  background-color: var(--skyblue);
+  border-radius: 6px;
+  font-family: "Muli", sans-serif;
+}
+
+.form-textarea:focus {
+  outline-color: var(--blue);
+}
+
+.form-btn,
+.word {
+  padding: 7px 14px;
+  min-width: 120px;
+  font-size: 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 0.6px;
+  font-family: "Muli", sans-serif;
+}
+
+.form-btn {
+  color: var(--white);
+  background-color: var(--black);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.form-btn:highlight {
+  scale: 0.97;
+}
+
+.words-container {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.word {
+  color: var(--white);
+  border: 2px solid var(--white);
+  border-radius: 20px;
+}
+
+.word.highlight {
+  background-color: var(--yellow);
+  color: var(--black);
+  border-color: transparent;
+  animation: chosen .1s infinite;
+}
+
+@keyframes chosen {
+  from {
+    background-color: var(--yellow);
+    color: var(--black);
+  }
+  to {
+    color: var(--white);
+    background-color: transparent;
+  }
+}
+
+.form-textarea:disabled + .form-btn {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
